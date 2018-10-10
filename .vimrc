@@ -42,6 +42,8 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'ternjs/tern_for_vim'
 " comments
 Plugin 'tpope/vim-commentary'
+" Ack
+Plugin 'mileszs/ack.vim'
 
 let g:AutoPairsShortcutFastWrap="<m-e>"
 
@@ -103,7 +105,7 @@ nnoremap <Leader>f :NERDTreeToggle<CR>
 "fzf
 set rtp+=/usr/local/opt/fzf
 nmap <C-p> :Files<CR>
-nmap <C-a> :Ag<CR>
+nmap <C-a> :Ack!<Space>
 "buffers
 nnoremap <leader>b :Buffers<CR>
 set hidden "to switch between buffers
@@ -156,3 +158,7 @@ let g:lightline = {
 	\	'gitbranch': 'fugitive#head'
 	\}
 \}
+
+if executable('ag')
+	let g:ackprg = 'ag --vimgrep'
+endif
