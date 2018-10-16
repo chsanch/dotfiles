@@ -44,6 +44,8 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'tpope/vim-commentary'
 " Ack
 Plugin 'mileszs/ack.vim'
+" to close buffers
+Plugin 'qpkorr/vim-bufkill'
 
 let g:AutoPairsShortcutFastWrap="<m-e>"
 
@@ -109,6 +111,7 @@ nmap <C-a> :Ack!<Space>
 "buffers
 nnoremap <leader>b :Buffers<CR>
 set hidden "to switch between buffers
+nmap <Leader>w :BD<cr>
 
 "ALE
 let g:ale_lint_on_text_changed = 'never' 
