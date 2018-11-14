@@ -25,10 +25,12 @@ Plugin 'airblade/vim-gitgutter'
 
 "React
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+"Plugin 'mxw/vim-jsx'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'prettier/vim-prettier'
-
+"Theme
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'junegunn/seoul256.vim'
 
 "Markdown
 Plugin 'iamcco/markdown-preview.vim'
@@ -55,8 +57,12 @@ filetype plugin indent on    " required
 set number
 set relativenumber
 syntax enable
-set background=dark
-colorscheme jellybeans
+" colorscheme seoul256
+" set background=dark
+"colorscheme config
+" let g:seoul256_srgb = 1
+let g:seoul256_background = 235
+colo seoul256
 
 set laststatus=2
 set mouse=a " Enable the mouse
@@ -152,7 +158,7 @@ let g:tagbar_type_typescript = {
 " swp files
 set directory^=$HOME/.vim/tmp//
 let g:lightline = { 
-	\'colorscheme' : 'jellybeans',
+	\'colorscheme' : 'seoul256',
 	\'active': {
 	\	'left': [ ['mode', 'paste'],
 	\			  ['gitbranch', 'readonly', 'filename', 'modified']]
@@ -165,3 +171,7 @@ let g:lightline = {
 if executable('ag')
 	let g:ackprg = 'ag --vimgrep'
 endif
+
+"jsx syntax
+let g:vim_jsx_pretty_colorful_config = 1
+
