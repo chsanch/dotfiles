@@ -46,6 +46,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'mileszs/ack.vim'
 " to close buffers
 Plugin 'qpkorr/vim-bufkill'
+" Rust
+Plugin 'rust-lang/rust.vim'
 
 let g:AutoPairsShortcutFastWrap="<m-e>"
 
@@ -121,7 +123,7 @@ let g:ale_fixers = { 'perl': ['perltidy'], 'javascript': ['eslint'], 'html': ['t
 nmap <leader>d <Plug>(ale_fix)
 
 "react
-let g:user_emmet_leader_key='<Tab>'
+" let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_settings = {
   \  'javascript.jsx' : {
     \      'extends' : 'jsx',
