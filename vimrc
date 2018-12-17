@@ -28,9 +28,11 @@ Plugin 'pangloss/vim-javascript'
 "Plugin 'mxw/vim-jsx'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'prettier/vim-prettier'
+Plugin 'styled-components/vim-styled-components'
 "Theme
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'junegunn/seoul256.vim'
+Plugin 'patstockwell/vim-monokai-tasty'
 
 "Markdown
 Plugin 'iamcco/markdown-preview.vim'
@@ -48,6 +50,10 @@ Plugin 'tpope/vim-commentary'
 Plugin 'mileszs/ack.vim'
 " to close buffers
 Plugin 'qpkorr/vim-bufkill'
+" Elm
+Plugin 'ElmCast/elm-vim'
+" Rust
+Plugin 'rust-lang/rust.vim'
 
 let g:AutoPairsShortcutFastWrap="<m-e>"
 
@@ -61,8 +67,11 @@ syntax enable
 " set background=dark
 "colorscheme config
 " let g:seoul256_srgb = 1
-let g:seoul256_background = 235
-colo seoul256
+" let g:seoul256_background = 235
+" colo seoul256
+
+let g:vim_monokai_tasty_italic = 1
+colorscheme vim-monokai-tasty
 
 set laststatus=2
 set mouse=a " Enable the mouse
@@ -155,10 +164,11 @@ let g:tagbar_type_typescript = {
     \ 'e:enums',
   \ ]
 \ }
+
 " swp files
 set directory^=$HOME/.vim/tmp//
 let g:lightline = { 
-	\'colorscheme' : 'seoul256',
+	\'colorscheme' : 'monokai_tasty',
 	\'active': {
 	\	'left': [ ['mode', 'paste'],
 	\			  ['gitbranch', 'readonly', 'filename', 'modified']]
