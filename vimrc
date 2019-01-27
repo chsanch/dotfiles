@@ -48,6 +48,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'qpkorr/vim-bufkill'
 " Rust
 Plugin 'rust-lang/rust.vim'
+" Elixir
+Plugin 'elixir-editors/vim-elixir'
 
 let g:AutoPairsShortcutFastWrap="<m-e>"
 
@@ -111,9 +113,8 @@ set rtp+=/usr/local/opt/fzf
 nmap <C-p> :Files<CR>
 nmap <C-a> :Ack!<Space>
 "buffers
-nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>bo :Buffers<CR>
 set hidden "to switch between buffers
-nmap <Leader>w :BD<cr>
 
 "ALE
 let g:ale_lint_on_text_changed = 'never' 
