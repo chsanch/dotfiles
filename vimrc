@@ -33,6 +33,8 @@ Plugin 'styled-components/vim-styled-components'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'patstockwell/vim-monokai-tasty'
+Plugin 'dracula/vim'
+Plugin 'morhetz/gruvbox'
 
 "Markdown
 Plugin 'iamcco/markdown-preview.vim'
@@ -62,16 +64,19 @@ filetype plugin indent on    " required
 
 set number
 set relativenumber
-syntax enable
+" Theme config
+syntax on
 " colorscheme seoul256
 " set background=dark
 "colorscheme config
 " let g:seoul256_srgb = 1
 " let g:seoul256_background = 235
 " colo seoul256
-
-let g:vim_monokai_tasty_italic = 1
-colorscheme vim-monokai-tasty
+" let g:vim_monokai_tasty_italic = 1
+" colorscheme vim-monokai-tasty
+" color dracula
+color gruvbox
+let g:gruvbox_italic = 1
 
 set laststatus=2
 set mouse=a " Enable the mouse
@@ -124,9 +129,9 @@ set rtp+=/usr/local/opt/fzf
 nmap <C-p> :Files<CR>
 nmap <C-a> :Ack!<Space>
 "buffers
-nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>bo :Buffers<CR>
 set hidden "to switch between buffers
-nmap <Leader>w :BD<cr>
+" nmap <Leader>w :BD<cr>
 
 "ALE
 let g:ale_lint_on_text_changed = 'never' 
