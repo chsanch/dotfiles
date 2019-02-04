@@ -5,7 +5,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-Bundle 'scrooloose/nerdtree'
+" Bundle 'scrooloose/nerdtree'
+Plugin 'tpope/vim-vinegar'
 Bundle 'tpope/vim-fugitive'
 Bundle 'majutsushi/tagbar'
 Bundle 'yko/mojo.vim'
@@ -122,7 +123,9 @@ com! FormatJSON %!python -m json.tool
 let g:perltidy = 0
 set textwidth=80
 set colorcolumn=80 
-nnoremap <Leader>f :NERDTreeToggle<CR>
+" nnoremap <Leader>f :NERDTreeToggle<CR>
+" vinegar
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 "fzf
 set rtp+=/usr/local/opt/fzf
