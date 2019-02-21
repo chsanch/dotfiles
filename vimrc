@@ -57,6 +57,8 @@ Plugin 'qpkorr/vim-bufkill'
 Plugin 'ElmCast/elm-vim'
 " Rust
 Plugin 'rust-lang/rust.vim'
+" Tmux integration
+Plugin 'benmills/vimux'
 
 let g:AutoPairsShortcutFastWrap="<m-e>"
 
@@ -193,3 +195,6 @@ endif
 "jsx syntax
 let g:vim_jsx_pretty_colorful_config = 1
 
+" vimux
+nmap <leader>vp :VimuxPromptCommand<CR>
+nmap <leader>vl :VimuxRunLastCommand<CR>
