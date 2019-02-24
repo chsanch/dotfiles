@@ -1,4 +1,4 @@
-set nocompatible
+" set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -38,8 +38,6 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'editorconfig/editorconfig-vim'
 " typescript
 Plugin 'leafgarland/typescript-vim'
-" For jsctags
-Plugin 'ternjs/tern_for_vim'
 " comments
 Plugin 'tpope/vim-commentary'
 " Ack
@@ -86,20 +84,6 @@ nnoremap <leader><space> :nohlsearch<CR>
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
-" from https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
-let g:SimpylFold_docstring_preview = 1
-autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
-autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
-au BufNewFile,BufRead *.py
-	 \ set tabstop=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-highlight BadWhitespace ctermbg=red guibg=darkred
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-let python_higlight_all=1
-
 set pastetoggle=<F2>
 com! FormatJSON %!python -m json.tool
 
@@ -115,6 +99,7 @@ nmap <C-a> :Ack!<Space>
 "buffers
 nnoremap <leader>bo :Buffers<CR>
 set hidden "to switch between buffers
+" nmap <Leader>w :BD<cr>
 
 "ALE
 let g:ale_lint_on_text_changed = 'never' 
