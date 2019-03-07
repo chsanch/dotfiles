@@ -36,6 +36,7 @@ Plugin 'junegunn/seoul256.vim'
 Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'dracula/vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'rakr/vim-one'
 
 "Markdown
 Plugin 'iamcco/markdown-preview.vim'
@@ -45,8 +46,6 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'editorconfig/editorconfig-vim'
 " typescript
 Plugin 'leafgarland/typescript-vim'
-" For jsctags
-Plugin 'ternjs/tern_for_vim'
 " comments
 Plugin 'tpope/vim-commentary'
 " Ack
@@ -78,8 +77,16 @@ syntax on
 " let g:vim_monokai_tasty_italic = 1
 " colorscheme vim-monokai-tasty
 " color dracula
-color gruvbox
-let g:gruvbox_italic = 1
+" color gruvbox
+if(empty ($TMUX))
+	if(has("termguicolors"))
+		set termguicolors
+	endif
+endif
+
+set background=dark
+let g:one_allow_italics = 1
+colorscheme one
 
 set laststatus=2
 set mouse=a " Enable the mouse
@@ -110,7 +117,7 @@ let g:SimpylFold_docstring_preview = 1
 autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 au BufNewFile,BufRead *.py
-	 \ set tabstop=4
+	\ set tabstop=4
     \ set textwidth=79
     \ set expandtab
     \ set autoindent
@@ -198,3 +205,5 @@ let g:vim_jsx_pretty_colorful_config = 1
 " vimux
 nmap <leader>vp :VimuxPromptCommand<CR>
 nmap <leader>vl :VimuxRunLastCommand<CR>
+" from https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/#tmux-21-and-above
+highlight Comment cterm=italic
