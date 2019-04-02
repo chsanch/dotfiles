@@ -59,6 +59,9 @@ set relativenumber
 syntax enable
 set background=dark
 colorscheme jellybeans
+if(has("termguicolors"))
+	set termguicolors
+endif
 
 set laststatus=2
 set mouse=a " Enable the mouse
@@ -153,3 +156,9 @@ let g:lightline = {
 if executable('ag')
 	let g:ackprg = 'ag --vimgrep'
 endif
+
+" from https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/#tmux-21-and-above
+highlight Comment cterm=italic
+" Add truecolor support to tmux
+set t_8b=[48;2;%lu;%lu;%lum
+set t_8f=[38;2;%lu;%lu;%lum
