@@ -65,7 +65,7 @@ ZSH_THEME="oxide"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git sudo z zsh-syntax-highlighting osx brew tmux
+  git sudo z osx brew tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -121,3 +121,5 @@ bindkey "^[OA" up-line-or-beginning-search
 bindkey "^[OB" down-line-or-beginning-search
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
