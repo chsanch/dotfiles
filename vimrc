@@ -16,6 +16,8 @@ Plugin 'tpope/vim-surround'
 " Plugin to show total of matches
 Plugin 'henrik/vim-indexed-search'
 Plugin 'itchyny/lightline.vim'
+" lightline-ale
+Plugin 'maximbaz/lightline-ale'
 Plugin 'vim-perl/vim-perl6'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/fzf.vim'
@@ -142,16 +144,33 @@ let g:tagbar_type_typescript = {
 \ }
 " swp files
 set directory^=$HOME/.vim/tmp//
-let g:lightline = { 
-	\'colorscheme' : 'jellybeans',
-	\'active': {
-	\	'left': [ ['mode', 'paste'],
-	\			  ['gitbranch', 'readonly', 'filename', 'modified']]
-	\},
-	\'component_function': {
-	\	'gitbranch': 'fugitive#head'
-	\}
-\}
+" statusline
+let g:lightline = {}
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_warnings = "\uf071"
+let g:lightline#ale#indicator_errors = "\uf05e"
+let g:lightline#ale#indicator_ok = "\uf00c"
+let g:lightline.colorscheme = 'jellybeans'
+let g:lightline.component_function = { 'gitbranch':'fugitive#head' }
+let g:lightline.active = {
+	\ 'left': [ [ 'mode', 'paste' ],
+	\           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+	\ 'right': [ [ 'lineinfo' ],
+	\            [ 'percent' ],
+	\            [ 'fileformat', 'fileencoding', 'filetype' ],
+	\            [  'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] ] }
 
 if executable('ag')
 	let g:ackprg = 'ag --vimgrep'

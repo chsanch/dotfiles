@@ -16,3 +16,5 @@ let g:tagbar_type_javascript = {
       \ 'E:exports',
       \ 'S:styled components'
       \ ]}
+let b:ale_linters = ['eslint', 'tsserver']
+let b:ale_fixers = ['eslint']
