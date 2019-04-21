@@ -110,6 +110,8 @@ eval "$(nodenv init -)"
 export PATH="$HOME/.plenv/bin:$PATH"
 eval "$(plenv init -)"
 export PATH="$HOME/bin:$PATH"
+#add node binaries
+export PATH="$HOME/.nodenv/shims:$PATH"
 
 ## vim mpde
 bindkey -v
@@ -123,3 +125,6 @@ bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#fzf
+# execute $(brew --prefix)/opt/fzf/install
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
