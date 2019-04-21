@@ -18,3 +18,6 @@ let g:tagbar_type_javascript = {
       \ ]}
 let b:ale_linters = ['eslint', 'tsserver']
 let b:ale_fixers = ['eslint']
+let b:ale_sign_error = '>>'
+let b:ale_sign_warning = '--'
+let b:ale_lint_on_save = 1
