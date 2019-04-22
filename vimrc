@@ -1,37 +1,29 @@
-" set nocompatible
 filetype off
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
 
+Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
-Bundle 'majutsushi/tagbar'
 Bundle 'yko/mojo.vim'
-
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'rdunklau/vim-perltidy'
-Plugin 'tpope/vim-surround'
-" Plugin to show total of matches
-Plugin 'henrik/vim-indexed-search'
-Plugin 'itchyny/lightline.vim'
-" lightline-ale
-Plugin 'maximbaz/lightline-ale'
-Plugin 'vim-perl/vim-perl6'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'henrik/vim-indexed-search' " Plugin to show total of matches
+Plugin 'itchyny/lightline.vim' " lightline-ale
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'maximbaz/lightline-ale'
+Plugin 'rdunklau/vim-perltidy'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-perl/vim-perl6'
 Plugin 'w0rp/ale'
-Plugin 'airblade/vim-gitgutter'
-
 "React
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'prettier/vim-prettier'
-
 Plugin 'nanotech/jellybeans.vim'
-
 "Markdown
 Plugin 'iamcco/markdown-preview.vim'
 "icons
@@ -44,8 +36,6 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'tpope/vim-commentary'
 " Ack
 Plugin 'mileszs/ack.vim'
-" to close buffers
-Plugin 'qpkorr/vim-bufkill'
 " Rust
 Plugin 'rust-lang/rust.vim'
 " Elixir
@@ -70,12 +60,12 @@ set mouse=a " Enable the mouse
 
 set backspace=indent,eol,start
 
-set tabstop=4
+set tabstop=8
 set shiftwidth=4
 set softtabstop=4
+set expandtab
 
 set clipboard=unnamed
-let g:syntastic_enable_perl_checker = 1
 " things from https://danielmiessler.com/study/vim/
 let mapleader = "\<Space>"
 set encoding=utf-8
@@ -104,13 +94,12 @@ nmap <C-a> :Ack!<Space>
 "buffers
 nnoremap <leader>bo :Buffers<CR>
 set hidden "to switch between buffers
-" nmap <Leader>w :BD<cr>
 
 "ALE
 let g:ale_lint_on_text_changed = 'never' 
 let g:ale_perl_perl_options = '-c -Mwarnings -Ilib -It/lib'
 let g:ale_linters = { 'perl': ['perl','perlcritic'] }
-let g:ale_fixers = { 'perl': ['perltidy'], 'javascript': ['eslint'], 'html': ['tidy'], 'json': ['fixjson']}
+let g:ale_fixers = { 'perl': ['perltidy'], 'html': ['tidy'], 'json': ['fixjson']}
 nmap <leader>d <Plug>(ale_fix)
 
 "react
@@ -173,7 +162,7 @@ let g:lightline.active = {
 	\            [  'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] ] }
 
 if executable('ag')
-	let g:ackprg = 'ag --vimgrep'
+    let g:ackprg = 'ag --vimgrep'
 endif
 
 " from https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/#tmux-21-and-above
