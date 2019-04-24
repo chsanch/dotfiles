@@ -25,7 +25,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'prettier/vim-prettier'
 Plugin 'nanotech/jellybeans.vim'
 "Markdown
-Plugin 'iamcco/markdown-preview.vim'
+Plugin 'iamcco/markdown-preview.nvim'
 "icons
 Plugin 'ryanoasis/vim-devicons'
 " editorconfig
