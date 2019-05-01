@@ -40,6 +40,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'rust-lang/rust.vim'
 " Elixir
 Plugin 'elixir-editors/vim-elixir'
+" Elm
+Plugin 'elmcast/elm-vim'
 
 let g:AutoPairsShortcutFastWrap="<m-e>"
 
