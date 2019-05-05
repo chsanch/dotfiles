@@ -21,3 +21,6 @@ let b:ale_fixers = ['eslint']
 let b:ale_sign_error = '>>'
 let b:ale_sign_warning = '--'
 let b:ale_lint_on_save = 1
+
+" https://vimways.org/2018/death-by-a-thousand-files/
+setlocal suffixesadd+=.js

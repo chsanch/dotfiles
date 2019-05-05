@@ -23,7 +23,6 @@ Plugin 'w0rp/ale'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'prettier/vim-prettier'
-Plugin 'nanotech/jellybeans.vim'
 "Markdown
 Plugin 'iamcco/markdown-preview.nvim'
 "icons
@@ -38,10 +37,15 @@ Plugin 'tpope/vim-commentary'
 Plugin 'mileszs/ack.vim'
 " Rust
 Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
 " Elixir
 Plugin 'elixir-editors/vim-elixir'
 " Elm
 Plugin 'elmcast/elm-vim'
+" Themes
+Plugin 'swalladge/paper.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'NLKNguyen/papercolor-theme'
 
 let g:AutoPairsShortcutFastWrap="<m-e>"
 
@@ -50,12 +54,13 @@ filetype plugin indent on    " required
 
 set number
 set relativenumber
+if(has("termguicolors"))
+    set termguicolors
+endif
 syntax enable
 set background=dark
-colorscheme jellybeans
-if(has("termguicolors"))
-	set termguicolors
-endif
+" colorscheme jellybeans
+colorscheme PaperColor
 
 set laststatus=2
 set mouse=a " Enable the mouse
@@ -64,8 +69,9 @@ set backspace=indent,eol,start
 
 set tabstop=8
 set shiftwidth=4
-set softtabstop=4
+set softtabstop=0
 set expandtab
+set smarttab
 
 set clipboard=unnamed
 " things from https://danielmiessler.com/study/vim/
@@ -98,6 +104,9 @@ nnoremap <leader>bo :Buffers<CR>
 set hidden "to switch between buffers
 
 "ALE
+let g:ale_completion_enabled = 1
+set completeopt=menu,menuone,preview,noselect,noinsert 
+let g:ale_set_balloons = 1
 let g:ale_lint_on_text_changed = 'never' 
 let g:ale_perl_perl_options = '-c -Mwarnings -Ilib -It/lib'
 let g:ale_linters = { 'perl': ['perl','perlcritic'] }
@@ -153,7 +162,7 @@ let g:lightline#ale#indicator_checking = "\uf110"
 let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
-let g:lightline.colorscheme = 'jellybeans'
+let g:lightline.colorscheme = 'PaperColor'
 let g:lightline.component_function = { 'gitbranch':'fugitive#head' }
 let g:lightline.active = {
 	\ 'left': [ [ 'mode', 'paste' ],
@@ -172,3 +181,5 @@ highlight Comment cterm=italic
 " Add truecolor support to tmux
 set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
+
+let g:elm_format_autosave = 0
