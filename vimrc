@@ -39,6 +39,7 @@ Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'dracula/vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'rakr/vim-one'
+Plugin 'NLKNguyen/papercolor-theme'
 
 "Markdown
 Plugin 'iamcco/markdown-preview.vim'
@@ -85,8 +86,8 @@ if(has("termguicolors"))
 endif
 
 set background=dark
-let g:one_allow_italics = 1
-colorscheme one
+" let g:one_allow_italics = 1
+colorscheme PaperColor
 
 set laststatus=2
 set mouse=a " Enable the mouse
@@ -112,19 +113,6 @@ nnoremap <leader><space> :nohlsearch<CR>
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
-" from https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
-let g:SimpylFold_docstring_preview = 1
-autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
-autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
-au BufNewFile,BufRead *.py
-	\ set tabstop=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-highlight BadWhitespace ctermbg=red guibg=darkred
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-let python_higlight_all=1
 
 set pastetoggle=<F2>
 com! FormatJSON %!python -m json.tool
@@ -147,7 +135,10 @@ set hidden "to switch between buffers
 
 "ALE
 " let g:ale_completion_enabled = 1
-let g:ale_lint_on_text_changed = 'never' 
+let g:ale_completion_enabled = 1
+set completeopt=menu,menuone,preview,noselect,noinsert 
+let g:ale_lint_on_text_changed = 'normal' 
+let g:ale_lint_on_insert_leave = 1
 let g:ale_perl_perl_options = '-c -Mwarnings -Ilib -It/lib'
 let g:ale_linters = { 'perl': ['perl','perlcritic'] }
 let g:ale_fixers = { 'perl': ['perltidy'], 'html': ['tidy'], 'json': ['fixjson']}
@@ -203,7 +194,7 @@ let g:lightline#ale#indicator_checking = "\uf110"
 let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
-let g:lightline.colorscheme = 'monokai_tasty'
+let g:lightline.colorscheme = 'PaperColor'
 let g:lightline.component_function = { 'gitbranch':'fugitive#head' }
 let g:lightline.active = {
 	\ 'left': [ [ 'mode', 'paste' ],
