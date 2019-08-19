@@ -18,7 +18,7 @@ Plugin 'maximbaz/lightline-ale'
 Plugin 'rdunklau/vim-perltidy'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-perl/vim-perl6'
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 "React
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -41,7 +41,7 @@ Plugin 'racer-rust/vim-racer'
 " Elixir
 Plugin 'elixir-editors/vim-elixir'
 " Elm
-Plugin 'elmcast/elm-vim'
+Plugin 'andys8/vim-elm-syntax'
 " Themes
 Plugin 'swalladge/paper.vim'
 Plugin 'nanotech/jellybeans.vim'
@@ -114,7 +114,6 @@ let g:ale_fixers = { 'perl': ['perltidy'], 'html': ['tidy'], 'json': ['fixjson']
 nmap <leader>d <Plug>(ale_fix)
 
 "react
-" let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_settings = {
   \  'javascript.jsx' : {
     \      'extends' : 'jsx',
@@ -181,5 +180,3 @@ highlight Comment cterm=italic
 " Add truecolor support to tmux
 set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
-
-let g:elm_format_autosave = 0
