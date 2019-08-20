@@ -97,7 +97,8 @@ nnoremap <Leader>f :NERDTreeToggle<CR>
 
 "fzf
 set rtp+=/usr/local/opt/fzf
-nmap <C-p> :Files<CR>
+let g:fzf_files_options ='--preview "bat {}"'
+nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<CR>"
 nmap <C-a> :Ack!<Space>
 "buffers
 nnoremap <leader>bo :Buffers<CR>
@@ -107,7 +108,9 @@ set hidden "to switch between buffers
 let g:ale_completion_enabled = 1
 set completeopt=menu,menuone,preview,noselect,noinsert 
 let g:ale_set_balloons = 1
-let g:ale_lint_on_text_changed = 'never' 
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_save = 0
 let g:ale_perl_perl_options = '-c -Mwarnings -Ilib -It/lib'
 let g:ale_linters = { 'perl': ['perl','perlcritic'] }
 let g:ale_fixers = { 'perl': ['perltidy'], 'html': ['tidy'], 'json': ['fixjson']}
