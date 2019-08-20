@@ -19,11 +19,12 @@ Plugin 'henrik/vim-indexed-search'
 Plugin 'itchyny/lightline.vim'
 " lightline-ale
 Plugin 'maximbaz/lightline-ale'
+
 Plugin 'vim-perl/vim-perl6'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 Plugin 'airblade/vim-gitgutter'
 
 "React
@@ -33,13 +34,7 @@ Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'prettier/vim-prettier'
 Plugin 'styled-components/vim-styled-components'
 "Theme
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'junegunn/seoul256.vim'
-Plugin 'patstockwell/vim-monokai-tasty'
-Plugin 'dracula/vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'rakr/vim-one'
-Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'Lokaltog/vim-monotone'
 
 "Markdown
 Plugin 'iamcco/markdown-preview.vim'
@@ -56,7 +51,7 @@ Plugin 'mileszs/ack.vim'
 " to close buffers
 Plugin 'qpkorr/vim-bufkill'
 " Elm
-Plugin 'ElmCast/elm-vim'
+Plugin 'andys8/vim-elm-syntax'
 " Rust
 Plugin 'rust-lang/rust.vim'
 " Tmux integration
@@ -71,24 +66,14 @@ set number
 set relativenumber
 " Theme config
 syntax on
-" colorscheme seoul256
-" set background=dark
-"colorscheme config
-" let g:seoul256_srgb = 1
-" let g:seoul256_background = 235
-" colo seoul256
-" let g:vim_monokai_tasty_italic = 1
-" colorscheme vim-monokai-tasty
-" color dracula
-" color gruvbox
 if(has("termguicolors"))
 	set termguicolors
 endif
 
 set background=dark
-" let g:one_allow_italics = 1
-colorscheme PaperColor
-
+let g:one_allow_italics = 1
+let g:monotone_emphasize_comments = 1 " Emphasize comments"
+colorscheme monotone
 set laststatus=2
 set mouse=a " Enable the mouse
 
@@ -120,25 +105,24 @@ com! FormatJSON %!python -m json.tool
 let g:perltidy = 0
 set textwidth=80
 set colorcolumn=80 
-" nnoremap <Leader>f :NERDTreeToggle<CR>
 " vinegar
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 "fzf
 set rtp+=/usr/local/opt/fzf
-nmap <C-p> :Files<CR>
+let g:fzf_files_options ='--preview "bat {}"'
+nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<CR>"
 nmap <C-a> :Ack!<Space>
 "buffers
 nnoremap <leader>bo :Buffers<CR>
 set hidden "to switch between buffers
-" nmap <Leader>w :BD<cr>
 
 "ALE
-" let g:ale_completion_enabled = 1
 let g:ale_completion_enabled = 1
 set completeopt=menu,menuone,preview,noselect,noinsert 
-let g:ale_lint_on_text_changed = 'normal' 
+let g:ale_lint_on_text_changed = 0 
 let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_save = 0
 let g:ale_perl_perl_options = '-c -Mwarnings -Ilib -It/lib'
 let g:ale_linters = { 'perl': ['perl','perlcritic'] }
 let g:ale_fixers = { 'perl': ['perltidy'], 'html': ['tidy'], 'json': ['fixjson']}
@@ -219,4 +203,7 @@ highlight Comment cterm=italic
 " Add truecolor support to tmux
 set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
+set updatetime=100
 
+" bind K to grep word under cursor https://thoughtbot.com/blog/faster-grepping-in-vim
+nnoremap K :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>

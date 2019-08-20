@@ -8,7 +8,8 @@ export ZSH="/Users/chsanch/.oh-my-zsh"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="avit"
+# ZSH_THEME="avit"
+ZSH_THEME="oxide"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -95,6 +96,7 @@ export LANG=en_US.UTF-8
 #
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
+alias vimconfig="vim ~/.vimrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH="$HOME/.plenv/bin:$PATH"
 eval "$(plenv init - zsh)"
@@ -118,3 +120,13 @@ source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 alias e="exa -l -h -a --git  --color-scale"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+#fzf
+export FZF_DEFAULT_OPTS="--height 40% --preview 'bat {}'"
