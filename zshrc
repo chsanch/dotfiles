@@ -115,8 +115,6 @@ eval "$(rbenv init -)"
 export PATH="$HOME/bin:$PATH"
 alias schemaspy='java -jar ~/bin/schemaspy.jar'
 export PATH="$HOME/.cargo/env:$PATH"
-#vim config
-source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 alias e="exa -l -h -a --git  --color-scale"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
