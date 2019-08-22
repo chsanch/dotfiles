@@ -1,66 +1,68 @@
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-fugitive'
-Bundle 'yko/mojo.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'henrik/vim-indexed-search' " Plugin to show total of matches
-Plugin 'itchyny/lightline.vim' " lightline-ale
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'junegunn/fzf.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'maximbaz/lightline-ale'
-Plugin 'rdunklau/vim-perltidy'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-perl/vim-perl6'
-Plugin 'dense-analysis/ale'
+call plug#begin('~/.vim/plugged')
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'yko/mojo.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'gmarik/Vundle.vim'
+Plug 'henrik/vim-indexed-search' " Plugin to show total of matches
+Plug 'itchyny/lightline.vim' " lightline-ale
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf.vim'
+Plug 'mattn/emmet-vim'
+Plug 'maximbaz/lightline-ale'
+Plug 'rdunklau/vim-perltidy'
+Plug 'tpope/vim-surround'
+Plug 'vim-perl/vim-perl6'
+Plug 'dense-analysis/ale'
 "React
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'prettier/vim-prettier'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'prettier/vim-prettier'
 "Markdown
-Plugin 'iamcco/markdown-preview.nvim'
+Plug 'iamcco/markdown-preview.nvim'
 "icons
-Plugin 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 " editorconfig
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 " typescript
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 " comments
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 " Ack
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 " Rust
-Plugin 'rust-lang/rust.vim'
-Plugin 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 " Elixir
-Plugin 'elixir-editors/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
 " Elm
-Plugin 'andys8/vim-elm-syntax'
+Plug 'andys8/vim-elm-syntax'
 " Themes
-Plugin 'swalladge/paper.vim'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'NLKNguyen/papercolor-theme'
-
-let g:AutoPairsShortcutFastWrap="<m-e>"
-
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Plug 'swalladge/paper.vim'
+" Plug 'nanotech/jellybeans.vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'joshdick/onedark.vim'
+call plug#end()
 
 set number
 set relativenumber
 if(has("termguicolors"))
     set termguicolors
 endif
-syntax enable
-set background=dark
+syntax on
+" set background=dark
 " colorscheme jellybeans
-colorscheme PaperColor
+" colorscheme PaperColor
+let g:onedark_terminal_italics = 1
+colorscheme onedark
 
 set laststatus=2
 set mouse=a " Enable the mouse
@@ -108,7 +110,7 @@ set hidden "to switch between buffers
 let g:ale_completion_enabled = 1
 set completeopt=menu,menuone,preview,noselect,noinsert 
 let g:ale_set_balloons = 1
-let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_save = 0
 let g:ale_perl_perl_options = '-c -Mwarnings -Ilib -It/lib'
@@ -164,7 +166,7 @@ let g:lightline#ale#indicator_checking = "\uf110"
 let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
-let g:lightline.colorscheme = 'PaperColor'
+let g:lightline.colorscheme = 'onedark'
 let g:lightline.component_function = { 'gitbranch':'fugitive#head' }
 let g:lightline.active = {
 	\ 'left': [ [ 'mode', 'paste' ],
