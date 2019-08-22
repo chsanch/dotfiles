@@ -1,66 +1,57 @@
-set nocompatible
-filetype off
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-
-" Bundle 'scrooloose/nerdtree'
-Plugin 'tpope/vim-vinegar'
-Bundle 'tpope/vim-fugitive'
-Bundle 'majutsushi/tagbar'
-Bundle 'yko/mojo.vim'
-
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'rdunklau/vim-perltidy'
-Plugin 'tpope/vim-surround'
-" Plugin to show total of matches
-Plugin 'henrik/vim-indexed-search'
-Plugin 'itchyny/lightline.vim'
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
+Plug 'majutsushi/tagbar'
+Plug 'yko/mojo.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'rdunklau/vim-perltidy'
+Plug 'tpope/vim-surround'
+" Plug to show total of matches
+Plug 'henrik/vim-indexed-search'
+Plug 'itchyny/lightline.vim'
 " lightline-ale
-Plugin 'maximbaz/lightline-ale'
-
-Plugin 'vim-perl/vim-perl6'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'junegunn/fzf.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'dense-analysis/ale'
-Plugin 'airblade/vim-gitgutter'
-
+Plug 'maximbaz/lightline-ale'
+Plug 'vim-perl/vim-perl6'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf.vim'
+Plug 'mattn/emmet-vim'
+Plug 'dense-analysis/ale'
+Plug 'airblade/vim-gitgutter'
 "React
-Plugin 'pangloss/vim-javascript'
-"Plugin 'mxw/vim-jsx'
-Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'prettier/vim-prettier'
-Plugin 'styled-components/vim-styled-components'
+Plug 'pangloss/vim-javascript'
+"Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'prettier/vim-prettier'
+Plug 'styled-components/vim-styled-components'
 "Theme
-Plugin 'Lokaltog/vim-monotone'
-
+Plug 'Lokaltog/vim-monotone'
 "Markdown
-Plugin 'iamcco/markdown-preview.vim'
+Plug 'iamcco/markdown-preview.vim'
 "icons
-Plugin 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 " editorconfig
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 " typescript
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 " comments
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 " Ack
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 " to close buffers
-Plugin 'qpkorr/vim-bufkill'
+Plug 'qpkorr/vim-bufkill'
 " Elm
-Plugin 'andys8/vim-elm-syntax'
+Plug 'andys8/vim-elm-syntax'
 " Rust
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 " Tmux integration
-Plugin 'benmills/vimux'
-
-let g:AutoPairsShortcutFastWrap="<m-e>"
-
-call vundle#end()            " required
-filetype plugin indent on    " required
+Plug 'benmills/vimux'
+call plug#end()
 
 set number
 set relativenumber
