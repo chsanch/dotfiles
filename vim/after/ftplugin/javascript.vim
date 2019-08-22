@@ -20,6 +20,7 @@ let g:tagbar_type_javascript = {
 let b:ale_linters = ['eslint', 'tsserver']
 let b:ale_fixers = ['eslint']
 let b:ale_lint_on_save = 1
+let b:ale_lint_on_insert_leave = 1
 let b:ale_javascript_eslint_use_global = 1
 " let b:ale_lint_on_text_changed = 'never' 
 " let g:ale_javascript_tsserver_use_global=1

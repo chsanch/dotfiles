@@ -120,7 +120,7 @@ set hidden "to switch between buffers
 "ALE
 let g:ale_completion_enabled = 1
 set completeopt=menu,menuone,preview,noselect,noinsert 
-let g:ale_lint_on_text_changed = 0 
+let g:ale_lint_on_text_changed = 'normal' 
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_save = 0
 let g:ale_perl_perl_options = '-c -Mwarnings -Ilib -It/lib'
