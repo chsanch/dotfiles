@@ -132,3 +132,10 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 alias mvim='vim -u ~/.vimrc-minimal'
+alias vimconfig="vim ~/.vimrc"
+
+export LC_ALL=en_US.UTF-8
+
+#pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
