@@ -128,3 +128,9 @@ fi
 
 #fzf
 export FZF_DEFAULT_OPTS="--height 40% --preview 'bat {}'"
+#google cloud
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

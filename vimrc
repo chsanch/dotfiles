@@ -28,9 +28,11 @@ Plug 'pangloss/vim-javascript'
 "Plug 'mxw/vim-jsx'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier'
-Plug 'styled-components/vim-styled-components'
-"Theme
+Plug 'styled-components/vim-styled-components', { 'branch': 'main'  }
+Plug 'hail2u/vim-css3-syntax'
+"Themes
 Plug 'Lokaltog/vim-monotone'
+Plug 'arzg/vim-substrata'
 "Markdown
 Plug 'iamcco/markdown-preview.vim'
 "icons
@@ -51,6 +53,8 @@ Plug 'andys8/vim-elm-syntax'
 Plug 'rust-lang/rust.vim'
 " Tmux integration
 Plug 'benmills/vimux'
+Plug 'rbong/vim-flog'
+
 call plug#end()
 
 set number
@@ -62,9 +66,11 @@ if(has("termguicolors"))
 endif
 
 set background=dark
-let g:one_allow_italics = 1
-let g:monotone_emphasize_comments = 1 " Emphasize comments"
-colorscheme monotone
+" let g:one_allow_italics = 1
+" let g:monotone_emphasize_comments = 1 " Emphasize comments"
+colorscheme substrata
+let g:substrata_italic_comments = 1
+let g:substrata_italic_functions = 1
 set laststatus=2
 set mouse=a " Enable the mouse
 
