@@ -18,7 +18,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'maximbaz/lightline-ale'
-Plug 'rdunklau/vim-perltidy'
+" Plug 'rdunklau/vim-perltidy'
 Plug 'tpope/vim-surround'
 Plug 'vim-perl/vim-perl6'
 Plug 'dense-analysis/ale'
@@ -50,6 +50,7 @@ Plug 'andys8/vim-elm-syntax'
 " Plug 'nanotech/jellybeans.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'joshdick/onedark.vim'
+Plug 'joukevandermaas/vim-ember-hbs'
 call plug#end()
 
 set number
@@ -92,7 +93,7 @@ set foldnestmax=10
 set pastetoggle=<F2>
 com! FormatJSON %!python -m json.tool
 
-let g:perltidy = 0
+" let g:perltidy = 0
 set textwidth=80
 set colorcolumn=80 
 nnoremap <Leader>f :NERDTreeToggle<CR>
