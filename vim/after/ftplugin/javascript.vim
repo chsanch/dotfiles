@@ -17,13 +17,19 @@ let g:tagbar_type_javascript = {
       \ 'S:styled components'
       \ ]}
 
+" let b:ale_linters = ['eslint', 'tsserver']
 let b:ale_linters = ['eslint', 'tsserver']
 let b:ale_fixers = ['eslint']
 let b:ale_lint_on_save = 1
 let b:ale_lint_on_insert_leave = 1
 let b:ale_javascript_eslint_use_global = 1
+" let b:ale_completion_tsserver_autoimport = 1
+" set omnifunc=ale#completion#OmniFunc
 " let b:ale_lint_on_text_changed = 'never' 
 " let g:ale_javascript_tsserver_use_global=1
 " let g:ale_javascript_tsserver_executable='/Users/chsanch/.nodenv/versions/8.11.4/bin/tsserver'
 " https://vimways.org/2018/death-by-a-thousand-files/
 setlocal suffixesadd+=.js
+" let b:ale_javascript_tsserver_config_path = '/Users/chsanch/jsconfig.json'
+" let b:ale_javascript_tsserver_use_global = 1
+setlocal foldmethod=indent

@@ -54,6 +54,11 @@ Plug 'rust-lang/rust.vim'
 " Tmux integration
 Plug 'benmills/vimux'
 Plug 'rbong/vim-flog'
+"Dart 
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+Plug 'thosakwe/vim-flutter'
 
 call plug#end()
 
