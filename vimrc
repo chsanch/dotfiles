@@ -27,7 +27,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier'
 "Markdown
-Plug 'iamcco/markdown-preview.nvim'
+Plug 'iamcco/markdown-preview.nvim' , { 'do': 'cd app & yarn install'  }
 "icons
 Plug 'ryanoasis/vim-devicons'
 " editorconfig
@@ -51,6 +51,16 @@ Plug 'andys8/vim-elm-syntax'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'joshdick/onedark.vim'
 Plug 'joukevandermaas/vim-ember-hbs'
+
+" Deoplete
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 call plug#end()
 
 set number
@@ -108,9 +118,9 @@ nnoremap <leader>bo :Buffers<CR>
 set hidden "to switch between buffers
 
 "ALE
-let g:ale_completion_enabled = 1
+" let g:ale_completion_enabled = 1
 set completeopt=menu,menuone,preview,noselect,noinsert 
-let g:ale_set_balloons = 1
+" let g:ale_set_balloons = 1
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_save = 0
@@ -118,6 +128,9 @@ let g:ale_perl_perl_options = '-c -Mwarnings -Ilib -It/lib'
 let g:ale_linters = { 'perl': ['perl','perlcritic'] }
 let g:ale_fixers = { 'perl': ['perltidy'], 'html': ['tidy'], 'json': ['fixjson']}
 nmap <leader>d <Plug>(ale_fix)
+
+"Deoplete
+let g:deoplete#enable_at_startup = 1
 
 "react
 let g:user_emmet_settings = {
@@ -186,3 +199,14 @@ highlight Comment cterm=italic
 " Add truecolor support to tmux
 set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
+
+if !has('nvim') " Vim 8 only
+	pythonx import pynvim
+endif
+
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ }
