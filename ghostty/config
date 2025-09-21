@@ -10,7 +10,7 @@ mouse-hide-while-typing = true
 # mouse-scroll-multiplier = 1
 
 theme = TokyoNight Storm
-# theme = Adwaita
+# theme = Apple System Colors Light
 cursor-invert-fg-bg = true
 window-theme = dark
 
