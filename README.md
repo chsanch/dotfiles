@@ -29,6 +29,7 @@ ln -sf ~/dotfiles/nvim ~/.config/nvim
 ## Contents
 
 - `nvim/` - Neovim configuration with LazyVim setup
+- `ghostty/` - Ghostty terminal emulator configuration
 
 ## Notes
 
