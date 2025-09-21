@@ -1,0 +1,28 @@
+font-family-bold = "Fira Code"
+font-family-italic = "Maple Mono"
+font-family-bold-italic = "Maple Mono"
+font-size = 14
+adjust-underline-position = 4
+
+
+# Mouse
+mouse-hide-while-typing = true
+# mouse-scroll-multiplier = 1
+
+theme = TokyoNight Storm
+# theme = Adwaita
+cursor-invert-fg-bg = true
+window-theme = dark
+
+
+macos-titlebar-style = tabs
+
+cursor-style = block
+
+window-padding-x = 10
+window-padding-y = 20
+window-inherit-working-directory = true
+
+# To enable shift + enter in Claude Code
+keybind = shift+enter=text:\x1b\r
+
