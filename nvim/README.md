@@ -28,7 +28,7 @@ programming.
 
   ```bash
   # macOS
-  brew install ascii-image-converter
+  brew install TheZoraiz/ascii-image-converter/ascii-image-converter
 
   # Linux (using go)
   go install github.com/TheZoraiz/ascii-image-converter@latest
