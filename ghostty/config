@@ -1,8 +1,9 @@
-font-family-bold = "Fira Code"
-font-family-italic = "Maple Mono"
-font-family-bold-italic = "Maple Mono"
+font-family = "Hack Nerd Font Mono"
+font-family-bold = "Hack Nerd Font Mono"
+font-family-italic = "Hack Nerd Font Mono"
+font-family-bold-italic = "Hack Nerd Font Mono"
 font-size = 14
-adjust-underline-position = 4
+adjust-underline-position = 3
 
 
 # Mouse
@@ -20,9 +21,34 @@ macos-titlebar-style = tabs
 cursor-style = block
 
 window-padding-x = 10
-window-padding-y = 20
+window-padding-y = 10
 window-inherit-working-directory = true
+
+# Keep more history available for logs, diffs and long command output.
+scrollback-limit = 200000
 
 # To enable shift + enter in Claude Code
 keybind = shift+enter=text:\x1b\r
 
+#custom-shader = ~/.config/ghostty/shaders/in-game-crt.glsl
+
+macos-option-as-alt = left
+clipboard-trim-trailing-spaces = true
+copy-on-select = clipboard
+right-click-action = copy-or-paste
+window-step-resize = true
+shell-integration = detect
+shell-integration-features = cursor,title
+minimum-contrast = 1.1
+mouse-scroll-multiplier = 2
+
+background-opacity = 0.94
+background-opacity-cells = true
+background-blur = 18
+
+cursor-style-blink = false
+cursor-opacity = 0.9
+cursor-color = cell-foreground
+cursor-text = cell-background
+
+window-colorspace = display-p3
